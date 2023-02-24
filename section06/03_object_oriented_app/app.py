@@ -1,16 +1,6 @@
 import tkinter as tk
+import tkinter as tk
 from tkinter import ttk
-
-
-class HelloWorld(tk.Tk):
-
-    def __init__(self):
-        super().__init__()
-
-        self.title("Hello World!")
-
-        frame = UserInputFrame(self)
-        frame.pack()
 
 
 class UserInputFrame(ttk.Frame):
@@ -20,8 +10,8 @@ class UserInputFrame(ttk.Frame):
         self.user_input = tk.StringVar()
 
         label = ttk.Label(self, text="Enter your name: ")
-        entry = ttk.Entry(self)
-        button = ttk.Button(self, command=self.greet)
+        entry = ttk.Entry(self, textvariable=self.user_input)
+        button = ttk.Button(self, text="Click", command=self.greet)
 
         label.pack(side="left")
         entry.pack(side="left")
@@ -32,5 +22,8 @@ class UserInputFrame(ttk.Frame):
 
 
 
-root = HelloWorld()
+root = tk.Tk()
+frame = UserInputFrame(root)
+frame.pack()
+
 root.mainloop()
